@@ -16,19 +16,19 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
   },
-  // plugins: [
-  //       adminPlugin({
-  //           adminUserIds: ['NQ0P5mWrUDoOqqSNxOsMEuj5TGNbFWmR'],
-  //           ac ,
-  //           roles: {
-  //               admin,
-  //               user,
-  //               coordenador,
-  //               gerente,
-  //               lojista
-  //           }
-  //       }),
-  //   ],
+  plugins: [
+        adminPlugin({
+            adminUserIds: ['NQ0P5mWrUDoOqqSNxOsMEuj5TGNbFWmR'],
+            ac ,
+            roles: {
+                admin,
+                user,
+                coordenador,
+                gerente,
+                lojista
+            }
+        }),
+    ],
   database: drizzleAdapter(db, {
     provider: "pg",
     schema,
