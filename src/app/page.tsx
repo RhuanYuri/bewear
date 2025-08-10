@@ -27,14 +27,24 @@ const Home = async () => {
       <Header />
       <div className="space-y-6">
         <div className="px-5">
-          <Image
-            src="/banner-01.png"
-            alt="Leve uma vida com estilo"
-            height={0}
-            width={0}
-            sizes="100vw"
-            className="h-auto w-full"
-          />
+          <picture>
+            {/* Fonte para telas médias (md) ou maiores (min-width: 768px).
+              O navegador usará esta imagem se a condição for verdadeira.
+            */}
+            <source media="(min-width: 768px)" srcSet="/md-banner-01.png" />
+            
+            {/* A imagem padrão (para telas pequenas) e fallback.
+              As props do componente Image são aplicadas a qualquer fonte que o navegador escolher.
+            */}
+            <Image
+              src="/banner-01.png" // Imagem para mobile e fallback
+              alt="Leve uma vida com estilo"
+              height={0}
+              width={0}
+              sizes="100vw"
+              className="h-auto w-full"
+            />
+          </picture>
         </div>
 
         <ProductList products={products} title="Mais vendidos" />
